@@ -22,7 +22,9 @@ namespace SimbirSoft
 
         static void Main(string[] args)
         {
-            string fullPath = "https://www.simbirsoft.com/";
+            Console.Write("Введите url: ");
+            string fullPath = Console.ReadLine();
+            //string fullPath = "https://www.simbirsoft.com/";
             try
             {
                 req = (HttpWebRequest)WebRequest.Create(fullPath);
