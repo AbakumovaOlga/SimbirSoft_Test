@@ -15,10 +15,6 @@ namespace SimbirSoft
         static HttpWebResponse resp;
         static StreamReader sr;
         static string content;
-        private static SQLiteConnection sql_con;
-        private static SQLiteCommand sql_cmd;
-        private static string sPath = "SS.db";
-
 
         static void Main(string[] args)
         {
@@ -57,18 +53,9 @@ namespace SimbirSoft
                             array.Add(new Statistics(s));
                         }
                     }
-                    string ConnectionString = @"Data Source=" + sPath + ";New=False;Version=3";
                     foreach (Statistics stat in array)
                     {
-                        string txtSQLQuery = "insert into Statistics (Word, Count) values ('" + stat.GetWord() + "', " + stat.GetCount() + ")";
-                        sql_con = new SQLiteConnection("Data Source=" + sPath +";Version=3;New=False;Compress=True;");
-                        sql_con.Open();
-                        sql_cmd = sql_con.CreateCommand();
-                        sql_cmd.CommandText = txtSQLQuery;
-                        sql_cmd.ExecuteNonQuery();
-                        sql_con.Close();
-
-                        Console.WriteLine(stat.Print());
+                       Console.WriteLine(stat.Print());
                     }
                 }
             }
