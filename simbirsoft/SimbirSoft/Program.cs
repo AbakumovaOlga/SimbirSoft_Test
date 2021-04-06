@@ -71,6 +71,7 @@ namespace SimbirSoft
                         Console.WriteLine(stat.Print());
                     }
                 }
+			 Console.ReadLine();
             }
             catch (Exception ex)
             {
